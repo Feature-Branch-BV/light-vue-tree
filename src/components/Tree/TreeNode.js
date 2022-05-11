@@ -24,7 +24,7 @@ export default {
       return (node.data.expanded ? <div>
         {
           node.children && node.children.map((subNode, index) => {
-            return (subNode.data.visible && <TreeNode tree={tree} key={(subNode && subNode.data && subNode.data.name) || index} node={subNode} />)
+            return (subNode.data.visible && <TreeNode tree={tree} key={(subNode?.data?.id) || index} node={subNode} />)
           })
         }
       </div> : null)

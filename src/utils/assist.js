@@ -76,7 +76,7 @@ export const findNearestComponent = (element, componentName) => {
 
 export function hasClass(el, cls) {
   if (!el || !cls) return false;
-  if (cls.indexOf(' ') !== -1) throw new Error('className should not contain space.');
+  if (cls.indexOf(' ') !== -1) console.error('className should not contain space.') //throw new Error('className should not contain space.');
   if (el.classList) {
     return el.classList.contains(cls);
   } else {

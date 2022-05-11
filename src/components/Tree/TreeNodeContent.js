@@ -34,7 +34,8 @@ export default {
       // 当前没有children进行lazyLoad
       if (node.data.expanded && lazy && (!node.children || !node.children.length)) {
         if (!load) {
-          throw new Error('[Tree] when lazy is true, load method must be set')
+          //hrow new Error('[Tree] when lazy is true, load method must be set')
+          console.error('[Tree] when lazy is true, load method must be set')
         }
         this.loading = true
         load(node.data,

@@ -87,7 +87,9 @@ export default {
   created () {
     if (this.lazy && this.immediatelyLoad) {
       if (!this.load) {
-        throw new Error('[Tree] when lazy is true, load method must be set')
+        //throw new Error('[Tree] when lazy is true, load method must be set')
+        console.error('[Tree] when lazy is true, load method must be set')
+        return
       }
       this.load(this.root, data => {
         const dataOrr = {

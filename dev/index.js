@@ -1,11 +1,7 @@
-/*!
- * light-vue-tree v1.0.4
- * open source under the MIT license
- */
-
+/* eslint-disable */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('core-js/modules/es.function.name.js'), require('core-js/modules/es.number.constructor.js'), require('core-js/modules/es.array.filter.js'), require('core-js/modules/es.object.to-string.js'), require('core-js/modules/web.dom-collections.for-each.js'), require('core-js/modules/es.array.includes.js'), require('core-js/modules/es.string.includes.js'), require('core-js/modules/es.array.splice.js'), require('core-js/modules/es.array.find-index.js'), require('core-js/modules/es.array.map.js'), require('core-js/modules/es.array.concat.js'), require('core-js/modules/es.map.js'), require('core-js/modules/es.string.iterator.js'), require('core-js/modules/web.dom-collections.iterator.js'), require('core-js/modules/es.regexp.exec.js'), require('core-js/modules/es.string.split.js'), require('core-js/modules/es.string.replace.js')) :
-  typeof define === 'function' && define.amd ? define(['core-js/modules/es.function.name.js', 'core-js/modules/es.number.constructor.js', 'core-js/modules/es.array.filter.js', 'core-js/modules/es.object.to-string.js', 'core-js/modules/web.dom-collections.for-each.js', 'core-js/modules/es.array.includes.js', 'core-js/modules/es.string.includes.js', 'core-js/modules/es.array.splice.js', 'core-js/modules/es.array.find-index.js', 'core-js/modules/es.array.map.js', 'core-js/modules/es.array.concat.js', 'core-js/modules/es.map.js', 'core-js/modules/es.string.iterator.js', 'core-js/modules/web.dom-collections.iterator.js', 'core-js/modules/es.regexp.exec.js', 'core-js/modules/es.string.split.js', 'core-js/modules/es.string.replace.js'], factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('core-js/modules/es.function.name.js'), require('core-js/modules/es.number.constructor.js'), require('core-js/modules/es.error.cause.js'), require('core-js/modules/es.array.filter.js'), require('core-js/modules/es.object.to-string.js'), require('core-js/modules/web.dom-collections.for-each.js'), require('core-js/modules/es.array.includes.js'), require('core-js/modules/es.string.includes.js'), require('core-js/modules/es.array.splice.js'), require('core-js/modules/es.array.find-index.js'), require('core-js/modules/es.array.map.js'), require('core-js/modules/es.array.concat.js'), require('core-js/modules/es.map.js'), require('core-js/modules/es.string.iterator.js'), require('core-js/modules/web.dom-collections.iterator.js'), require('core-js/modules/es.regexp.exec.js'), require('core-js/modules/es.string.split.js'), require('core-js/modules/es.string.replace.js')) :
+  typeof define === 'function' && define.amd ? define(['core-js/modules/es.function.name.js', 'core-js/modules/es.number.constructor.js', 'core-js/modules/es.error.cause.js', 'core-js/modules/es.array.filter.js', 'core-js/modules/es.object.to-string.js', 'core-js/modules/web.dom-collections.for-each.js', 'core-js/modules/es.array.includes.js', 'core-js/modules/es.string.includes.js', 'core-js/modules/es.array.splice.js', 'core-js/modules/es.array.find-index.js', 'core-js/modules/es.array.map.js', 'core-js/modules/es.array.concat.js', 'core-js/modules/es.map.js', 'core-js/modules/es.string.iterator.js', 'core-js/modules/web.dom-collections.iterator.js', 'core-js/modules/es.regexp.exec.js', 'core-js/modules/es.string.split.js', 'core-js/modules/es.string.replace.js'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.VueTree = factory());
 })(this, (function () { 'use strict';
 
@@ -354,8 +350,7 @@
 
         if (node.data.expanded && lazy && (!node.children || !node.children.length)) {
           if (!load) {
-            //hrow new Error('[Tree] when lazy is true, load method must be set')
-            console.error('[Tree] when lazy is true, load method must be set');
+            throw new Error('[Tree] when lazy is true, load method must be set');
           }
 
           this.loading = true;
@@ -1767,7 +1762,7 @@
   };
   function hasClass(el, cls) {
     if (!el || !cls) return false;
-    if (cls.indexOf(' ') !== -1) console.error('className should not contain space.'); //throw new Error('className should not contain space.');
+    if (cls.indexOf(' ') !== -1) throw new Error('className should not contain space.');
 
     if (el.classList) {
       return el.classList.contains(cls);
@@ -1903,9 +1898,7 @@
 
       if (this.lazy && this.immediatelyLoad) {
         if (!this.load) {
-          //throw new Error('[Tree] when lazy is true, load method must be set')
-          console.error('[Tree] when lazy is true, load method must be set');
-          return;
+          throw new Error('[Tree] when lazy is true, load method must be set');
         }
 
         this.load(this.root, function (data) {
@@ -2531,3 +2524,4 @@
   return Tree;
 
 }));
+//# sourceMappingURL=index.js.map

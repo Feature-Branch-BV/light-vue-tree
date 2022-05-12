@@ -60,7 +60,8 @@ export default {
     isEditOption: [Boolean],
     virtual: [Boolean],
     isLoading: [Boolean],
-    checkedValue: [Number, String, Array]
+    checkedValue: [Number, String, Array],
+    notFoundText: [String]
   },
   data () {
     return {
@@ -105,7 +106,7 @@ export default {
   computed: {
     localeNotFoundText () {
       if (typeof this.notFoundText === 'undefined') {
-        return '无匹配数据'
+        return 'Geen bestanden gevonden'
       } else {
         return this.notFoundText
       }
